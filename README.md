@@ -38,3 +38,26 @@ plants <- read_csv("https://raw.githubusercontent.com/rfordatascience/tidytuesda
     ## 
     ## ℹ Use `spec()` to retrieve the full column specification for this data.
     ## ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.
+
+## Filtrando los datos para resolver el ejemplo 1
+
+El código que voy a ejecutar ahora, es para resolver el problema en el
+siguiente
+[slide](https://derek-corcoran-barrios.github.io/CursoProgrPres/Clase2/Clase2InvestigacionReproducible.html#29),
+para poner dentro de la base de datos, solo los datos de Chile y solo
+usar las columnas para país (**country**), la especie(“binomial\_name”)
+y la categoría de IUCN (**red\_list\_category**)
+
+``` r
+Chile<- plants %>% 
+  dplyr::filter(country == 'Chile') %>% 
+  dplyr::select(binomial_name, country, red_list_category)
+
+Chile
+```
+
+    ## # A tibble: 2 × 3
+    ##   binomial_name           country red_list_category  
+    ##   <chr>                   <chr>   <chr>              
+    ## 1 Santalum fernandezianum Chile   Extinct            
+    ## 2 Sophora toromiro        Chile   Extinct in the Wild
