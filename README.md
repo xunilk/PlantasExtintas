@@ -5,6 +5,6 @@ Trabajo con Plantas extintas
 
 En este documento trabajaremos para explorar la identidad de plantas que
 se encuentran extintas en silvestría o totalmente extintas según la
-IUCN.
+[*IUCN*](https://www.iucnredlist.org/).
 
 ## Sub título
