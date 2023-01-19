@@ -45,8 +45,8 @@ El código que voy a ejecutar ahora, es para resolver el problema en el
 siguiente
 [slide](https://derek-corcoran-barrios.github.io/CursoProgrPres/Clase2/Clase2InvestigacionReproducible.html#29),
 para poner dentro de la base de datos, solo los datos de Chile y solo
-usar las columnas para país (**country**), la especie(“binomial\_name”)
-y la categoría de IUCN (**red\_list\_category**)
+usar las columnas para país (*country*), la especie(“binomial\_name”) y
+la categoría de IUCN (*red\_list\_category*)
 
 ``` r
 Chile<- plants %>% 
@@ -61,3 +61,27 @@ Chile
     ##   <chr>                   <chr>   <chr>              
     ## 1 Santalum fernandezianum Chile   Extinct            
     ## 2 Sophora toromiro        Chile   Extinct in the Wild
+
+## Resumen de especies por país
+
+``` r
+Resumen <- plants %>% 
+  dplyr::filter(continent == "South America") %>% 
+  group_by(country) %>% 
+  summarize(n_species = n())
+
+Resumen
+```
+
+    ## # A tibble: 9 × 2
+    ##   country             n_species
+    ##   <chr>                   <int>
+    ## 1 Argentina                   1
+    ## 2 Bolivia                     1
+    ## 3 Brazil                     10
+    ## 4 Chile                       2
+    ## 5 Colombia                    6
+    ## 6 Ecuador                    52
+    ## 7 Peru                        4
+    ## 8 Trinidad and Tobago         6
+    ## 9 Venezuela                   1
